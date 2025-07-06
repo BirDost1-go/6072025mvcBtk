@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Candidate
+<div>
+    <h3 class="display-4">congratulations @Model.FullName</h3>
+    <p class="lead"> your application is <mark>accepted</mark></p>
+    <p class="lead" > thanks for your application</p>
+    <hr />
+    <blockquoute class="blockquoute">
+        you have enrolld to @Model.SelectedCourse course.
+    </blockquoute>
+    <p class="text-muted">you applied at @Model.ApplyAt</p>
+    <div class="btn-group">
+        <a class="btn btn-outline-success" asp-action="Index" asp-controller="Course">Applications</a>
+        <a class="btn btn-outline-primary" asp-action="Index" asp-controller="Home"  >Home</a>
+    </div>
+</div>

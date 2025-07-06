@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Candidate>
+
+
+<div class="text-center">
+    <h4 class="display-4">I'm trying</h4>
+    <p>
+        <a class="btn btn-outline-primary" asp-controller="Course" asp-action="Apply"  >Apply</a>
+    </p> 
+</div>
+
+@if (Model.Count() > 0)
+{
+    <h5 class="display-6">
+        Applications(@Model.Count())
+    </h5>
+    <table class="table table-hover table-striped"> 
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Full name</th>
+                <th>Apply at</th>
+                <th>course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Candidate candidate in Model)
+            {
+                <tr>
+                    <td>@candidate.Email</td>
+                    <td>@candidate.FullName</td>
+                    <td>@candidate.ApplyAt</td>
+                    <td>@candidate.SelectedCourse</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        there is no application. Please click here to apply
+        <a class="alert-link" asp-action="Apply"> apply.</a>
+    </div>
+}
